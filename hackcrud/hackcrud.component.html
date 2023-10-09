@@ -1,0 +1,48 @@
+<div class="container mt-4" >
+    <div class="card">
+            <h1>To Do List</h1>
+    
+    <form (ngSubmit)="save()">
+        <div class="form-group">
+          <label>Task Name</label>
+          <input type="text" [(ngModel)]="task" [ngModelOptions]="{standalone: true}" class="form-control" id="task" placeholder="Enter Task">
+        </div>
+    
+        <div class="form-group">
+          <label>Date</label>
+          <input type="text" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" class="form-control" id="date" placeholder="Enter Date">
+        </div>
+
+
+    
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+       
+      </form>
+    </div>
+    
+  
+    
+        <div class="container mt-4" >
+            <h1>List of Tasks</h1>
+        <table class="table">
+            <thead>
+             <h1 *ngIf="!isResultLoaded"></h1>      
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Task Name</th>
+                <th scope="col">Date</th>  
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let TaskItem of TaskArray">
+                <td>{{TaskItem.id  }}</td>
+                <td>{{TaskItem.task }}</td>
+                <td>{{TaskItem.date }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="setUpdate(TaskItem)">Edit</button>
+                  <button type="button" class="btn btn-danger" (click)="setDelete(TaskItem)">Delete</button>            
+                </td>
+              </tr>          
+            </tbody>
+          </table>
+        </div>
