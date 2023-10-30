@@ -21,7 +21,7 @@ db.connect(function (error){
     if (error) {
         console.log("Error");
     } else {
-        console.log("Connected");
+        console.log("Connect");
     }
 });
 
